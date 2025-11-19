@@ -1,0 +1,30 @@
+{
+    "name": "Python Web Scraper",
+    
+    // Build environment using Dockerfile
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".." 
+    },
+    
+    // This command runs the web scraping script automatically after the container starts
+    "postStartCommand": "python scraper.py",
+    
+    // Keep the container running for interactive use after the script finishes
+    "shutdownAction": "none",
+
+    // Environment setup for VS Code
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python" 
+            ],
+            "settings": {
+                // Ensure the output file is visible in the file explorer
+                "files.exclude": {
+                    "books_data.csv": false 
+                }
+            }
+        }
+    }
+}
